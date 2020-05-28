@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import User from "./User";
+import "./GoogleAcc.css";
+import User from "../User/User";
 
 export class GoogleAcc extends Component {
   render() {

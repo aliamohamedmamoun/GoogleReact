@@ -1,0 +1,46 @@
+#footer {
+  background-color: #f2f2f2;
+  display: block;
+  height: 90px;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+#country {
+  padding: 10px 30px;
+  height: 45px;
+  border-bottom: 1px #e4e4e4 solid;
+  border-top: 1px #e4e4e4 solid;
+  color: #7a7a7a;
+  margin: 0;
+}
+#options {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+}
+#options ul {
+  list-style: none;
+  display: flex;
+  padding-left: 30px;
+}
+/*common  style for all ul in the page*/
+ul a {
+  text-decoration: none;
+  padding-right: 20px;
+  color: #5f6368;
+  font-size: 15px;
+}
+ul a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 970px) {
+  #footer {
+    width: 970px;
+  }
+}

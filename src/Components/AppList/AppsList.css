@@ -1,0 +1,62 @@
+#apps {
+  position: relative;
+}
+#apps-list {
+  position: absolute;
+  width: 320px;
+  height: 435px;
+  overflow-y: scroll;
+  background-color: white;
+  border: 1px solid #bfbfbf;
+  box-shadow: 1px 1px 10px #bfbfbf;
+  top: 60px;
+  border-radius: 5px;
+  z-index: 2;
+  margin-left: -15px;
+  padding: 10px 0;
+}
+
+#apps-list ul {
+  list-style: none;
+
+  padding: 10px;
+  margin-left: 0;
+  margin-right: 15px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  text-align: center;
+  padding-left: 15px;
+  justify-items: center;
+}
+#apps-list li {
+  height: 85px;
+  width: 85px;
+  padding: 10px 5px;
+
+  border-radius: 10px;
+}
+#list1 {
+  border-bottom: 1px #e4e4e4 solid;
+  padding-right: 0;
+}
+
+#moreFromGoogle {
+  width: 150px;
+  margin: 25px auto;
+}
+
+#moreFromGoogle a {
+  text-decoration: none;
+  color: #4da3ff;
+  font-size: 15px;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px #e4e4e4 solid;
+  padding: 10px;
+}
+#moreFromGoogle :hover {
+  background-color: rgba(230, 242, 255, 0.5);
+}

@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 
-export const ClickOutside = (initialValue: boolean) => {
-  const ref = useRef < HTMLDivElement > initialValue;
-  const [visible, setVisible] = useState(false);
-  const handleClickOutside = () => {
+export const UseClickOutside = initialValue => {
+  const ref = useRef();
+  const [visible, setVisible] = useState(initialValue);
+
+  const handleClickOutside = event => {
     if (ref.current && !ref.current.contians(event.target)) setVisible(false);
   };
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Top from "./Components/Top";
-import SearchForm from "./Components/SearchForm";
-import Footer from "./Components/Footer";
+import Top from "./Components/Top/Top";
+import SearchForm from "./Components/SearchForm/SearchForm";
+import Footer from "./Components/Footer/Footer";
 
 class App extends React.Component {
   render() {
