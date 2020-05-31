@@ -4,6 +4,8 @@ import Top from "./Components/Top/Top";
 import SearchForm from "./Components/SearchForm/SearchForm";
 import Footer from "./Components/Footer/Footer";
 
+//import { UseClickOutside } from "../../Hooks/useClickOutside";
+
 class App extends React.Component {
   render() {
     return (

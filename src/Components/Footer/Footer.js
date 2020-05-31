@@ -1,8 +1,8 @@
 import React from "react";
-import SettingsList from "../SetteingsList/SettingsList";
-import ListItem from "../ListItem/ListItem";
+import SettingsList from "Components/SetteingsList/SettingsList";
+import ListItem from "Components/ListItem/ListItem";
 import "./Footer.css";
-//import { UseClickOutside } from "../../Hooks/useClickOutside";
+
 import { useEffect, useState, useRef } from "react";
 
 function Footer() {
@@ -32,13 +32,7 @@ function Footer() {
     { name: "Privacy", target: "https://policies.google.com/privacy?fg=1" },
     { name: "Terms", target: "https://policies.google.com/terms?fg=1" }
   ]);
-  //const { showSettings, setShowSettings, ref } = UseClickOutside(false);
   const [showSettings, setShowSettings] = useState(false);
-
-  const hideComponent = () => {
-    setShowSettings(!showSettings);
-  };
-
   return (
     <div id="footer">
       <p id="country">Egypt</p>
@@ -54,14 +48,14 @@ function Footer() {
             <ListItem name={item.name} target={item.target} key={index} />
           ))}
           <li>
-            <a href="#" onClick={() => hideComponent()}>
+            <a href="#" onClick={() => setShowSettings(!showSettings)}>
               Settings
             </a>
           </li>
-
           {showSettings && (
             <SettingsList
-            //ref={ref}
+              setShowSettings={setShowSettings}
+              showSettings={showSettings}
             />
           )}
         </ul>

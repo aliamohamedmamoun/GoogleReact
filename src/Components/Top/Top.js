@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import AppsList from "../AppList/AppsList";
-import GoogleAcc from "../GoogleAcc/GoogleAcc";
+import AppsList from "Components/AppList/AppsList";
+import GoogleAcc from "Components/GoogleAcc/GoogleAcc";
 
 import "./Top.css";
 
@@ -33,7 +33,7 @@ function Top() {
           apps
         </i>
       </a>
-      {showApps && <AppsList />}
+      {showApps && <AppsList showApps={showApps} setShowApps={setShowApps} />}
       <a
         href="#"
         title="Google Account:"
@@ -41,7 +41,9 @@ function Top() {
       >
         <i id="icon" className="fa fa-user-circle-o"></i>
       </a>
-      {showAccount && <GoogleAcc />}
+      {showAccount && (
+        <GoogleAcc showAccount={showAccount} setShowAccount={setShowAccount} />
+      )}
     </div>
   );
 }

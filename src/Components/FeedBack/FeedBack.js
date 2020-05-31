@@ -1,15 +1,44 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./FeedBack.css";
-import Checkbox from "../Checkbox/Checkbox";
+import Checkbox from "Components/Checkbox/Checkbox";
 
-function FeedBack({ handleSubmit, handleText, handleCancel }) {
+function FeedBack({ showFeedback, setShowFeedback }) {
   const [isChecKed, setIsChecked] = useState(true);
+  const [checkboxBackground, setcheckboxBackground] = useState("");
+  const [submitClicked, setSubmitClicked] = useState(false);
+  const [showValidation, setShowValidation] = useState("none");
+  const [textArea, setTextArea] = useState("");
 
   const handleChecked = () => {
     setIsChecked(!isChecKed);
-    document.getElementById("customized-checkbox").style.backgroundColor =
-      "rgba(0, 0, 0, 0.12)";
+    setcheckboxBackground("rgba(0, 0, 0, 0.12)");
+  };
+
+  const handleCancel = () => {
+    setShowFeedback(!showFeedback);
+  };
+
+  const handleSubmit = evt => {
+    setSubmitClicked(true);
+    validate();
+    evt.preventDefault();
+  };
+  const validate = () => {
+    if (textArea === "") {
+      setShowValidation("block");
+      return false;
+    } else {
+      handleCancel();
+    }
+  };
+  const handleText = evt => {
+    setTextArea(evt.target.value);
+    if (evt.target.value !== "") {
+      setShowValidation("none");
+    } else if (submitClicked) {
+      setShowValidation("block");
+    }
   };
   return (
     <div id="feedback">
@@ -18,11 +47,18 @@ function FeedBack({ handleSubmit, handleText, handleCancel }) {
         <textarea
           placeholder="Leave product feedback or share your ideas This isn't a way to contact support,as you typically won't receive a response."
           id="textArea"
+          value={textArea}
           onChange={handleText}
         ></textarea>
-        <span id="validation">A description is required</span>
+        <span id="validation" style={{ display: showValidation }}>
+          A description is required
+        </span>
         <div id="Checkbox">
-          <Checkbox handleChecked={handleChecked} isChecked={isChecKed} />
+          <Checkbox
+            handleChecked={handleChecked}
+            isChecked={isChecKed}
+            checkboxBackground={checkboxBackground}
+          />
           {isChecKed && <canvas id="myCanvas"></canvas>}
         </div>
         <p>
@@ -58,8 +94,7 @@ function FeedBack({ handleSubmit, handleText, handleCancel }) {
   );
 }
 FeedBack.propTypes = {
-  handleSubmit: PropTypes.func,
-  handleText: PropTypes.func,
-  handleCancel: PropTypes.func
+  showFeedback: PropTypes.bool,
+  setShowFeedback: PropTypes.func
 };
 export default FeedBack;

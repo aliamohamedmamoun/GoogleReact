@@ -1,10 +1,10 @@
 import React from "react";
 import "./User.css";
-import Female from "../../Assets/icons8-female-profile-80.png";
+import Female from "Assets/icons8-female-profile-80.png";
 export default function User() {
   return (
     <div id="user">
-      <img id="profile-pic" src={Female} />
+      <img id="profile-pic" src={Female} alt="profilePicture" />
       <a>
         <span id="camera" className="fa-stack fa-lg">
           <i id="cam" className="fa fa-camera fa-stack-1x"></i>

@@ -1,9 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import PropTypes from "prop-types";
 import "./SettingsList.css";
 
-import ListItem from "../ListItem/ListItem";
-import FeedBack from "../FeedBack/FeedBack";
-function SettingsList() {
+import { useClickAway } from "react-use";
+
+import ListItem from "Components/ListItem/ListItem";
+import FeedBack from "Components/FeedBack/FeedBack";
+function SettingsList({ setShowSettings, showSettings }) {
   const [settings, setSettings] = useState([
     { name: "Search setting", target: "" },
     { name: "Advanced search", target: "" },
@@ -23,53 +26,43 @@ function SettingsList() {
         "https://support.google.com/websearch/?visit_id=637232758047733395-3055146706&hl=en-EG&rd=2#topic=3378866"
     }
   ]);
+
   const [showFeedback, setShowFeedback] = useState(false);
-  const [submitClicked, setSubmitClicked] = useState(false);
 
-  const handleCancel = () => {
-    setShowFeedback(!showFeedback);
-  };
-  const handleSubmit = () => {
-    setSubmitClicked(true);
-    let x = document.getElementById("textArea").value;
-    if (x === "") {
-      document.getElementById("validation").style.display = "block";
-      return false;
-    } else {
-      setShowFeedback(!showFeedback);
-    }
+  const handleShowFeedback = () => {
+    //setShowSettings(!showSettings);
+    setShowFeedback(true);
   };
 
-  const handleText = () => {
-    let x = document.getElementById("textArea").value;
-    if (x !== "") {
-      document.getElementById("validation").style.display = "none";
-    } else if (submitClicked) {
-      document.getElementById("validation").style.display = "block";
-    }
-  };
+  const wrapperRef = useRef(null);
+
+  useClickAway(wrapperRef, () => {
+    setShowSettings(!showSettings);
+  });
 
   return (
-    <ul id="settings-list">
+    <ul id="settings-list" ref={wrapperRef}>
       {settings.map((setting, index) => (
         <ListItem name={setting.name} target={setting.target} key={index} />
       ))}
 
       <li>
-        <a href="#" onClick={() => setShowFeedback(true)}>
+        <a href="#" onClick={handleShowFeedback}>
           Send feedback
         </a>
       </li>
 
       {showFeedback && (
         <FeedBack
-          handleCancel={handleCancel}
-          handleSubmit={handleSubmit}
-          handleText={handleText}
+          showFeedback={showFeedback}
+          setShowFeedback={setShowFeedback}
         />
       )}
     </ul>
   );
 }
-
+SettingsList.propTypes = {
+  showSettings: PropTypes.bool,
+  setShowSettings: PropTypes.func
+};
 export default SettingsList;

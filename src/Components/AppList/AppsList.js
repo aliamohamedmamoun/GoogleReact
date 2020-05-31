@@ -1,33 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { useClickAway } from "react-use";
+import PropTypes from "prop-types";
+
 import "./AppsList.css";
 
-import Female from "../../Assets/icons8-female-profile-80.png";
-import Google from "../../Assets/icons8-google-96 (1).png";
-import Maps from "../../Assets/icons8-google-maps-96.png";
-import YouTube from "../../Assets/icons8-play-button-96.png";
-import Play from "../../Assets/icons8-google-play-96.png";
-import Gmail from "../../Assets/icons8-gmail-96.png";
-import Contacts from "../../Assets/512px-Google_Contacts_icon.svg.png";
-import Drive from "../../Assets/icons8-google-drive-96.png";
-import Calender from "../../Assets/icons8-google-calendar-96.png";
-import Translate from "../../Assets/icons8-google-translate-96.png";
-import Photos from "../../Assets/icons8-google-photos-96.png";
-import Duo from "../../Assets/iconfinder_106-DUO_google_duo_4202005.png";
-import Docs from "../../Assets/icons8-google-docs-96.png";
-import Sheets from "../../Assets/icons8-google-sheets-96.png";
-import Slides from "../../Assets/icons8-google-slides-96 (1).png";
-import Blogger from "../../Assets/iconfinder_Blogger_2613269.png";
-import Hangouts from "../../Assets/icons8-hangouts-96.png";
-import Keep from "../../Assets/icons8-google-keep-96.png";
-import Jamboard from "../../Assets/jamboard.png";
-import Classroom from "../../Assets/icons8-google-classroom-96.png";
-import Earth from "../../Assets/1024px-Google_Earth_icon.svg.png";
-import Collections from "../../Assets/google-collections.svg";
-import Art from "../../Assets/Arts-Culture.png";
+import Female from "Assets/icons8-female-profile-80.png";
+import Google from "Assets/icons8-google-96 (1).png";
+import Maps from "Assets/icons8-google-maps-96.png";
+import YouTube from "Assets/icons8-play-button-96.png";
+import Play from "Assets/icons8-google-play-96.png";
+import Gmail from "Assets/icons8-gmail-96.png";
+import Contacts from "Assets/512px-Google_Contacts_icon.svg.png";
+import Drive from "Assets/icons8-google-drive-96.png";
+import Calender from "Assets/icons8-google-calendar-96.png";
+import Translate from "Assets/icons8-google-translate-96.png";
+import Photos from "Assets/icons8-google-photos-96.png";
+import Duo from "Assets/iconfinder_106-DUO_google_duo_4202005.png";
+import Docs from "Assets/icons8-google-docs-96.png";
+import Sheets from "Assets/icons8-google-sheets-96.png";
+import Slides from "Assets/icons8-google-slides-96 (1).png";
+import Blogger from "Assets/iconfinder_Blogger_2613269.png";
+import Hangouts from "Assets/icons8-hangouts-96.png";
+import Keep from "Assets/icons8-google-keep-96.png";
+import Jamboard from "Assets/jamboard.png";
+import Classroom from "Assets/icons8-google-classroom-96.png";
+import Earth from "Assets/1024px-Google_Earth_icon.svg.png";
+import Collections from "Assets/google-collections.svg";
+import Art from "Assets/Arts-Culture.png";
 
-import AppItem from "../AppItem/AppItem";
+import AppItem from "Components/AppItem/AppItem";
 
-function AppsList() {
+function AppsList({ showApps, setShowApps }) {
   const [list1, setList1] = useState([
     {
       name: "Account",
@@ -106,9 +109,14 @@ function AppsList() {
       icon: Collections
     }
   ]);
+  const wrapperRef = useRef(null);
+
+  useClickAway(wrapperRef, () => {
+    setShowApps(!showApps);
+  });
 
   return (
-    <div id="apps-list">
+    <div id="apps-list" ref={wrapperRef}>
       <ul id="list1">
         {list1.map((item, index) => (
           <AppItem
@@ -143,5 +151,8 @@ function AppsList() {
     </div>
   );
 }
-
+AppsList.propTypes = {
+  showApps: PropTypes.bool,
+  setShowApps: PropTypes.func
+};
 export default AppsList;
