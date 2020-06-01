@@ -5,8 +5,9 @@ import Google from "Assets/googlelogo_color_272x92dp.png";
 import Mic from "Assets/83px-Google_mic.svg.png";
 
 function SearchForm() {
+  const focusInput = React.createRef();
   useEffect(() => {
-    let f = document.getElementById("search").focus();
+    focusInput.current.focus();
   });
 
   return (
@@ -15,9 +16,9 @@ function SearchForm() {
       <div id="searchForm">
         <div id="search-bar" className="input">
           <i id="search-icon" className="fa fa-search"></i>
-          <input type="text" id="search" fname="search" title="search" />
+          <input type="text" id="search" title="search" ref={focusInput} />
 
-          <a href="#" id="mic-tooltip">
+          <a href="#mic" id="mic-tooltip">
             <img id="mic" src={Mic} alt="Mic" />
             <span className="tooltiptext">Search by voice</span>
           </a>
@@ -32,7 +33,7 @@ function SearchForm() {
         </div>
         <div id="language">
           <label>Google offerd in : </label>
-          <a href="#"> العربية</a>
+          <a href="#Arabic"> العربية</a>
         </div>
       </div>
     </div>

@@ -1,20 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./SettingsList.css";
-
-import { useClickAway } from "react-use";
 
 import ListItem from "Components/ListItem/ListItem";
 import FeedBack from "Components/FeedBack/FeedBack";
 function SettingsList({ setShowSettings, showSettings }) {
-  const [settings, setSettings] = useState([
-    { name: "Search setting", target: "" },
-    { name: "Advanced search", target: "" },
-    {
-      name: "Your data in search",
-      target:
-        "https://myactivity.google.com/privacyadvisor/search?utm_source=googlemenu&fg=1"
-    },
+  const [settings] = useState([
     {
       name: " History",
       target:
@@ -30,24 +21,20 @@ function SettingsList({ setShowSettings, showSettings }) {
   const [showFeedback, setShowFeedback] = useState(false);
 
   const handleShowFeedback = () => {
-    //setShowSettings(!showSettings);
     setShowFeedback(true);
   };
 
-  const wrapperRef = useRef(null);
-
-  useClickAway(wrapperRef, () => {
-    setShowSettings(!showSettings);
-  });
-
   return (
-    <ul id="settings-list" ref={wrapperRef}>
+    <ul id="settings-list">
+      <p className="settingText">Search setting</p>
+      <p className="settingText">Advanced search</p>
+      <p className="settingText">Your data in search</p>
       {settings.map((setting, index) => (
         <ListItem name={setting.name} target={setting.target} key={index} />
       ))}
 
       <li>
-        <a href="#" onClick={handleShowFeedback}>
+        <a href="#sendFeedback" onClick={handleShowFeedback}>
           Send feedback
         </a>
       </li>

@@ -66,18 +66,28 @@ function FeedBack({ showFeedback, setShowFeedback }) {
           <a
             href="https://support.google.com/legal/answer/3110420?hl=en-GB"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Legal Help page{" "}
           </a>
           to request content changes for legal reasons. Some
-          <a>account and system information </a>may be sent to Google. We will
-          use the information that you give us to help address technical issues
-          and to improve our services, subject to our
-          <a href="https://policies.google.com/privacy?hl=en" target="_blank">
+          <a href="#Account and System info">account and system information </a>
+          may be sent to Google. We will use the information that you give us to
+          help address technical issues and to improve our services, subject to
+          our
+          <a
+            href="https://policies.google.com/privacy?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Privacy Policy
           </a>
           and
-          <a href="https://policies.google.com/terms?hl=en-GB" target="_blank">
+          <a
+            href="https://policies.google.com/terms?hl=en-GB"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Terms of Service.
           </a>
         </p>

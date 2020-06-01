@@ -1,17 +1,12 @@
-import React, { useRef } from "react";
-import { useClickAway } from "react-use";
+import React from "react";
+
 import PropTypes from "prop-types";
 import "./GoogleAcc.css";
 import User from "Components/User/User";
 
 function GoogleAcc({ showAccount, setShowAccount }) {
-  const wrapperRef = useRef(null);
-
-  useClickAway(wrapperRef, () => {
-    setShowAccount(!showAccount);
-  });
   return (
-    <div id="google-account" ref={wrapperRef}>
+    <div id="google-account">
       <User />
       <div id="section">
         <a
@@ -32,13 +27,21 @@ function GoogleAcc({ showAccount, setShowAccount }) {
       <div id="policy">
         <div>
           <li id="privacy-item">
-            <a href="https://policies.google.com/privacy?hl=en" target="_blank">
+            <a
+              href="https://policies.google.com/privacy?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Privacy Policy
             </a>
           </li>
         </div>
         <li>
-          <a href="https://policies.google.com/terms?hl=en" target="_blank">
+          <a
+            href="https://policies.google.com/terms?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Terms of Service
           </a>
         </li>

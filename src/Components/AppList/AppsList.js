@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { useClickAway } from "react-use";
+import React, { useState } from "react";
+
 import PropTypes from "prop-types";
 
 import "./AppsList.css";
@@ -31,7 +31,7 @@ import Art from "Assets/Arts-Culture.png";
 import AppItem from "Components/AppItem/AppItem";
 
 function AppsList({ showApps, setShowApps }) {
-  const [list1, setList1] = useState([
+  const [list1] = useState([
     {
       name: "Account",
       target: "myaccount.google.com/?utm_source=OGB&tab=wk&utm_medium=app",
@@ -77,7 +77,7 @@ function AppsList({ showApps, setShowApps }) {
     { name: "Photos", target: "photos.google.com/", icon: Photos },
     { name: "Duo", target: "duo.google.com/?usp=duo_ald", icon: Duo }
   ]);
-  const [list2, setList2] = useState([
+  const [list2] = useState([
     {
       name: "Docs",
       target: "docs.google.com/document/u/0/?usp=docs_alc",
@@ -109,14 +109,9 @@ function AppsList({ showApps, setShowApps }) {
       icon: Collections
     }
   ]);
-  const wrapperRef = useRef(null);
-
-  useClickAway(wrapperRef, () => {
-    setShowApps(!showApps);
-  });
 
   return (
-    <div id="apps-list" ref={wrapperRef}>
+    <div id="apps-list">
       <ul id="list1">
         {list1.map((item, index) => (
           <AppItem
@@ -133,18 +128,23 @@ function AppsList({ showApps, setShowApps }) {
             name={item.name}
             icon={item.icon}
             target={item.target}
+            alt={item.name}
             key={index}
           />
         ))}
         <li id="artsAndCulture">
           <a href="artsandculture.google.com/?hl=en">
-            <img src={Art} />
+            <img src={Art} alt="Arts" />
             <p>Arts and Culture</p>
           </a>
         </li>
       </ul>
       <div id="moreFromGoogle">
-        <a href="https://about.google/intl/en/products/?tab=wh" target="_blank">
+        <a
+          href="https://about.google/intl/en/products/?tab=wh"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           More from Google
         </a>
       </div>
