@@ -1,0 +1,29 @@
+#Top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 10px;
+}
+.menu {
+  padding: 0 10px;
+  margin: 0;
+}
+/* to select Top links only */
+#Top > a {
+  padding: 10px 15px;
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#Top > a:hover {
+  text-decoration: underline;
+  color: #4d4d4d;
+}
+#icon {
+  color: #737373;
+  font-size: 25px;
+}
+#icon:hover {
+  color: black;
+}

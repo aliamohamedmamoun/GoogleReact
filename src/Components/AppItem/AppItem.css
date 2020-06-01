@@ -1,0 +1,34 @@
+#apps-list img {
+  width: 48px;
+  height: 48px;
+}
+#apps-list p {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 13px;
+}
+#apps-list li {
+  height: 85px;
+  width: 85px;
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+#apps-list a:hover {
+  text-decoration: none;
+}
+#apps-list li:hover {
+  background-color: rgba(230, 242, 255, 0.5);
+}
+#artsAndCulture {
+  height: 90px;
+}
+#artsAndCulture p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#artsAndCulture :hover p {
+  overflow: visible;
+  white-space: normal;
+}

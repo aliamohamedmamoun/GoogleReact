@@ -1,0 +1,58 @@
+#profile-pic {
+  width: 60px;
+  height: 60px;
+}
+#camera {
+  width: 16px;
+  height: 16px;
+  margin-left: -20px;
+  cursor: pointer;
+}
+#cam {
+  font-size: 16px;
+  top: -15px;
+  right: 2px;
+  color: #5f6368;
+}
+#circle {
+  font-size: 35px;
+  top: -11px;
+  left: -6px;
+  color: white;
+  background-color: white;
+  z-index: -1;
+}
+#google-account h4 {
+  font-weight: 50;
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+#user p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #5f6368;
+}
+#manageYourAccount {
+  margin: 10px auto;
+  padding-top: 5px;
+}
+
+#manageYourAccount a {
+  text-decoration: none;
+  color: #595959;
+  font-size: 15px;
+  font-weight: 50;
+  max-width: 100%;
+  height: 100%;
+  padding: 8px 15px;
+  border: 1px solid #e4e4e4;
+  border-radius: 20px;
+}
+#user {
+  border-bottom: 1px #e4e4e4 solid;
+  padding: 20px;
+  text-align: center;
+}
